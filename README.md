@@ -41,7 +41,7 @@
         return Int(string2)!
         })
 
-    print(c1)
-    print(c2)
+    print(c1)   // [1, 2, 3, 4]
+    print(c2)   // [1, 2, 3, 4]
 
 ```
