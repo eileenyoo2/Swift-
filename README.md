@@ -2,19 +2,15 @@
 
 1. 키보드 입력 받기 & 값 공백으로 구분하기
 
-***
 ```
     let nums = readLine()!.split(separator: " ")
     print(nums)
 ```
-***
   
-<br>
 <br>
 
 2. 배열 다루기
 
-***
 ```
     var array = [Int](1...5) // [1, 2, 3, 4, 5]
 
@@ -31,4 +27,21 @@
 
     array.sorted(by: >) // 내림차순 
 ```
-***
+
+3. map
+
+```
+    // 축약형
+    var string1 = ["1","2","3","4"]
+    let c1 = string1.map{ Int($0)! }
+
+    // 원본
+    var string2 = ["1","2","3","4"]
+    let c2 = string2.map({(string2: String) -> Int in
+        return Int(string2)!
+        })
+
+    print(c1)
+    print(c2)
+
+```
