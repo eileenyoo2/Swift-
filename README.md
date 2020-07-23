@@ -45,3 +45,21 @@
     print(c2)   // [1, 2, 3, 4]
 
 ```
+
+4. filter
+   
+``` 
+    // 축약형 
+    var array1 = [1,2,3,4]
+    let a1 = array1.filter{ $0 % 2 == 0}
+    print(a1)
+
+    // 원본
+    var array2 = [1,2,3,4]
+    let a2 = array2.filter({(array2: Int)-> Bool
+        in
+        return array2 % 2 == 0
+    })
+    print(a2)
+
+```
