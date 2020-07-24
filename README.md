@@ -51,6 +51,7 @@
 
     array.sorted(by: >) // 내림차순 
 ```
+<br>
 
 3. map
 
@@ -69,6 +70,7 @@
     print(c2)   // [1, 2, 3, 4]
 
 ```
+<br>
 
 4. filter
    
@@ -87,6 +89,7 @@
     print(a2)
 
 ```
+<br>
 
 5. reduce
 
@@ -115,10 +118,75 @@
                     // 클로저는 이전 결과와 다음 항목을 계속 호출하여 다음과 같은 과정을 거쳐
                     // 하나의 값을 얻는다. {0+1},{1+2},{3+3},{6+4} 이며, 결과는 10
 ```
+<br>
 
 6. 문자열 쪼개기
    
 ```
+    // 1. startIndex : 첫번째 문자의 인덱스 & endIndex : 마지막 문자 다음의 인덱스
+    var str = "Hello, Swift"
 
+    let c = str[str.startIndex] // H
+
+    let d = str[str.endIndex] // error : after last character
+
+    let range = str.startIndex..<str.endIndex
+    print(str[range])   // Hello, Swift
+
+    // 2. after : 입력된 인덱스의 바로 다음 인덱스
+    // 문법 표현 : index(after: String.Index)
+
+    var str = "Hello, Swift"
+
+    let index = str.index(after: str.startIndex)
+    print(str[index])   // e
+
+    // 3. before : 입력된 인덱스의 바로 이전 인덱스
+    // 문법 표현 : index(before: String.Index)
+
+    var str = "Hello, Swift"
+
+    let index = str.index(before: str.endIndex)
+    print(str[index])   // t
+
+    // 4. offsetBy : 입력된 인덱스와의 거리값
+    // 문법 표현 : index(String.Index, offsetBy: String.IndexDistance)
+
+    var str = "Hello, Swift"
+
+    let index = str.index(str.startIndex, offsetBy: 7)
+    print(str[index])   // S
+
+    // 5. limitedBy : 인덱스의 한계치를 정해주는 메서드. offset이 이 값을 벗어날 경우 nil 리턴
+    // 문법 표현 : index(String.Index, offsetBy: String.IndexDistance, limitedBy: String.Index)
+
+    var str = "Hello, Swift"
+
+    // 만약 offset이 10 이라면 if문을 skip한다.
+    if let index = str.index(str.startIndex, offsetBy: 7, limitedBy: str.endIndex){
+        str[index]  // S
+    }
+
+    // 6. substring(to: String.Index) : 처음부터 to 인덱스까지 가져오기
+
+    var str = "Hello, Swift"
+    let index = str.index(str.startIndex, offsetBy: 5)
+    str.substring(to: index)    // Hello
+
+    // 7. substring(from: String.Index) : from 인덱스부터 끝까지 가져오기
+
+    var str = "Hello, Swift"
+    let index = str.index(str.startIndex, offsetBy: 7)
+    str.substring(from: index)    // Swift
+
+    // 8. substring(with: Range) : 설정한 구간의 값을 가져온다
+
+    var str = "Hello, Swift"
+    let start = str.index(str.startIndex, offsetBy: 7)
+    let end = str.index(str.endIndex, offsetBy: -6)
+
+    let range = start..<end
+    str.substring(with: range)  // Swif
 
 ```
+<br>
