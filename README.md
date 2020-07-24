@@ -6,7 +6,8 @@
     // 방법 1
     let nums = readLine()!.split(separator: " ")
     print(nums)
-
+```
+```
     // 방법 2
     // components(separatedBy: " ")
 
@@ -132,7 +133,8 @@
 
     let range = str.startIndex..<str.endIndex
     print(str[range])   // Hello, Swift
-
+```
+```
     // 2. after : 입력된 인덱스의 바로 다음 인덱스
     // 문법 표현 : index(after: String.Index)
 
@@ -140,7 +142,8 @@
 
     let index = str.index(after: str.startIndex)
     print(str[index])   // e
-
+```
+```
     // 3. before : 입력된 인덱스의 바로 이전 인덱스
     // 문법 표현 : index(before: String.Index)
 
@@ -148,7 +151,8 @@
 
     let index = str.index(before: str.endIndex)
     print(str[index])   // t
-
+```
+```
     // 4. offsetBy : 입력된 인덱스와의 거리값
     // 문법 표현 : index(String.Index, offsetBy: String.IndexDistance)
 
@@ -156,7 +160,8 @@
 
     let index = str.index(str.startIndex, offsetBy: 7)
     print(str[index])   // S
-
+```
+```
     // 5. limitedBy : 인덱스의 한계치를 정해주는 메서드. offset이 이 값을 벗어날 경우 nil 리턴
     // 문법 표현 : index(String.Index, offsetBy: String.IndexDistance, limitedBy: String.Index)
 
@@ -166,19 +171,22 @@
     if let index = str.index(str.startIndex, offsetBy: 7, limitedBy: str.endIndex){
         str[index]  // S
     }
-
+```
+```
     // 6. substring(to: String.Index) : 처음부터 to 인덱스까지 가져오기
 
     var str = "Hello, Swift"
     let index = str.index(str.startIndex, offsetBy: 5)
     str.substring(to: index)    // Hello
-
+```
+```
     // 7. substring(from: String.Index) : from 인덱스부터 끝까지 가져오기
 
     var str = "Hello, Swift"
     let index = str.index(str.startIndex, offsetBy: 7)
     str.substring(from: index)    // Swift
-
+```
+```
     // 8. substring(with: Range) : 설정한 구간의 값을 가져온다
 
     var str = "Hello, Swift"
@@ -187,6 +195,6 @@
 
     let range = start..<end
     str.substring(with: range)  // Swif
-
+```
 ```
 <br>
