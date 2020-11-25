@@ -13,7 +13,7 @@ struct Queue<T> {
         return array.first
     }
     
-    mutating func enqueue(_ element: T) -> Bool {    // 반환형은 True/False
+    mutating func enqueue(_ element: T) -> Bool {    // 반환형은 True/False, mutating을 사용해줘야 하는 이유는 구조체에서 생성한 array 배열을 수정해줘야하기 때문이다.
         array.append(element)
         return true
     }
