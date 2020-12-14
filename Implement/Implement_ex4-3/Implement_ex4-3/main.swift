@@ -27,10 +27,15 @@ var d: [[Int]] = Array(repeating: Array(repeating: 0, count: mapSize[0]), count:
 d[characterPosition[0]][characterPosition[1]] = 1
 
 // 전체 맵 정보 입력받기
-var mapSetting:[[Int]]
-for _ in 0 ..< mapSize[0] {
-    mapSetting = readLine()!.split(separator: " ").map { Array(Int($0)!) }
+var map = [[Int]]()
+var mapSetting:[Int] = []
+for i in 0 ..< mapSize[0] {
+    mapSetting = readLine()!.split(separator: " ").map { Int($0)! }
+    map.append(mapSetting)
+    print("\(i)mapSetting-->\(mapSetting)")
 }
+
+print("map-->\(map)")
 
 // 방향 : 북 / 동 / 남 / 서
 let dx = [-1, 0, 1, 0]
@@ -38,6 +43,7 @@ let dy = [0, 1, 0, -1]
 
 // 왼쪽으로 회전
 var direction:Int = characterPosition[2]
+
 func turnLeft() -> Int {
     // 반시계 방향으로 90도 회전
     direction -= 1
@@ -55,9 +61,9 @@ while true {
     turnLeft()
     var nx = characterPosition[0] + dx[direction]
     var ny = characterPosition[1] + dy[direction]
-    
+
     // 회전한 이후 정면에 가보지 않은 칸이 존재할 경우 -> 이동
-    if d[nx][ny] == 0 && mapSetting[nx][ny] == 0 {
+    if d[nx][ny] == 0 && map[nx][ny] == 0 {
         d[nx][ny] = 1
         characterPosition[0] = nx
         characterPosition[1] = ny
@@ -73,7 +79,7 @@ while true {
             nx = characterPosition[0] - dx[direction]
             ny = characterPosition[1] - dy[direction]
             // 뒤로 갈 수 있다면 이동
-            if mapSetting[nx][ny] == 0 {
+            if map[nx][ny] == 0 {
                 characterPosition[0] = nx
                 characterPosition[1] = ny
             }
