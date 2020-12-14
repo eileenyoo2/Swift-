@@ -26,7 +26,7 @@ var d: [[Int]] = Array(repeating: Array(repeating: 0, count: mapSize[0]), count:
 // 현재 좌표를 방문처리
 d[characterPosition[0]][characterPosition[1]] = 1
 
-// 전체 맵 정보 입력받기
+// 전체 맵 정보 입력받기 (1차원 배열을 2차원 배열안에 넣어준 것)
 var map = [[Int]]()
 var mapSetting:[Int] = []
 for i in 0 ..< mapSize[0] {
