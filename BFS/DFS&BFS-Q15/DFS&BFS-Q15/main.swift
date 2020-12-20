@@ -14,7 +14,7 @@ let NMKX = readLine()!.split(separator: " ").map{ Int(String($0))! }
 var graph: [[Int]] = Array(repeating: [], count: NMKX[0]+1)
 var visited: [Int] = Array(repeating: -1, count: NMKX[0]+1)
 
-// 이 부분이 이해가 잘 안됨
+// 2차원 배열안에 그래프 정보 입력
 for _ in 0 ..< NMKX[1] {
     let input = readLine()!.split(separator: " ").map{ Int(String($0))! }
     graph[input[0]].append(input[1])
@@ -24,8 +24,8 @@ let start = NMKX[3]
 let distance = NMKX[2]
 var queue: [Int] = []
 queue.append(start)
-visited[start] = 0
-
+visited[start] = 0  // 기존에 -1을 0으로 바꾸는 작업
+    
 var curIdx = 0
 while curIdx < queue.count {
     let cur = queue[curIdx]
@@ -39,6 +39,7 @@ while curIdx < queue.count {
 }
 
 var checked = false
+// indices : 안전하게 배열을 돌 수 있게 함
 for i in visited.indices {
     if visited[i] == NMKX[2] {
         print(i)
