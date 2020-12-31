@@ -15,3 +15,5 @@ func solution(_ n:Int) -> Int {
     let answer = Int(String(flipToThree.reversed()),radix:3)!
     return answer
 }
+
+
