@@ -11,15 +11,15 @@ import Foundation
 
 func solution(_ numbers:[Int]) -> String {
     
-    let result = numbers.sorted { Int("\($0)\($1)")! > Int("\($1)\($0)")!}
+    var strings = numbers.map{String($0)}
+    strings.sort{ $0+$1 > $1+$0 }
     
-    
-    if result[0] == 0 {
-        return "0"
-    }
-    return result.reduce(""){ $0 + "\($1)"}
+    let answer = strings.joined()
+    print(answer)
+    if let num = Int(answer) { return String(num) }
+    return answer
 }
 
-print(solution([6,10,2]))
+print(solution([0,0,0]))
 
 
