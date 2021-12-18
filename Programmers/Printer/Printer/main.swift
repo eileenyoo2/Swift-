@@ -8,6 +8,8 @@
 // [프로그래머스 프린터]
 // 문제링크 : https://programmers.co.kr/learn/courses/30/lessons/42587
 
+// priorityQueue 를 만들어줄 수 있는지가 이 문제의 핵심
+
 import Foundation
 
 // priorities: 문서의 중요도가 순서대로 담긴 배열
@@ -49,4 +51,5 @@ func solution(_ priorities:[Int], _ location:Int) -> Int {
     return result
 }
 
-print(solution([2,1,3,2], 2))
+//print(solution([2,1,3,2], 2))
+solution([1,1,9,1,1,1], 0)
