@@ -7,6 +7,8 @@
 
 // [프로그래머스 다리를 지나는 트럭]
 
+// 빈 Array를 만들어주면서 개수를 체크해주는 것이 포인트
+
 import Foundation
 
 func solution(_ bridge_length:Int, _ weight:Int, _ truck_weights:[Int]) -> Int {
