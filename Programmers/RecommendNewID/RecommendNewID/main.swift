@@ -20,12 +20,43 @@ func solution(_ new_id:String) -> String {
     // case1
     new_id.lowercased()
     // case2
-    new_id.replacingOccurrences(of: "-", with: "")
-          .replacingOccurrences(of: "_", with: "")
-          .replacingOccurrences(of: ".", with: "")
+    new_id.replacingOccurrences(of: "!", with: "")
+          .replacingOccurrences(of: "@", with: "")
+          .replacingOccurrences(of: "#", with: "")
+          .replacingOccurrences(of: "*", with: "")
+          .replacingOccurrences(of: "..", with: ".")
+           // case3
+          .replacingOccurrences(of: "...", with: ".")
+    
+    // case4
+    if new_id[new_id.startIndex] == "." {
+        new_id.remove(at: new_id.startIndex)
+    }
+    
+    // case5
+    if new_id.isEmpty {
+        new_id.append("a")
+    }
+    
+    // case6
+    if new_id.count > 16 {
+        let last = new_id.index(new_id.startIndex, offsetBy: 16)
+        let range = last ..< new_id.endIndex
+        new_id.removeSubrange(range)
+    }
+    
+    // case7
+    if new_id.count < 2 {
+        let end = new_id[new_id.endIndex]
+        
+        while new_id.count <= 3 {
+            new_id.append(end)
+        }
+    }
     
     
-    return ""
+    print(new_id)
+    return new_id
 }
 
-solution("ADVssa")
+solution("...!@BaT#*..y.abcdefghijklm")
