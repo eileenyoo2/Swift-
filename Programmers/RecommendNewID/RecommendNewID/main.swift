@@ -16,47 +16,68 @@ import Foundation
 
 func solution(_ new_id:String) -> String {
     
-    var new_id = new_id
+    var checkId = ""
     // case1
-    new_id.lowercased()
+    let arrayId = new_id.lowercased()
     // case2
-    new_id.replacingOccurrences(of: "!", with: "")
-          .replacingOccurrences(of: "@", with: "")
-          .replacingOccurrences(of: "#", with: "")
-          .replacingOccurrences(of: "*", with: "")
-          .replacingOccurrences(of: "..", with: ".")
-           // case3
-          .replacingOccurrences(of: "...", with: ".")
+    let whiteList = ["-","_","."]
+    
+    for char in arrayId {
+        if char.isLetter || char.isNumber || whiteList.contains(String(char)){
+            checkId += String(char)
+        }
+    }
+    
+    while checkId.contains("..") {
+        checkId = checkId.replacingOccurrences(of: "..", with: ".")
+    }
     
     // case4
-    if new_id[new_id.startIndex] == "." {
-        new_id.remove(at: new_id.startIndex)
+    if checkId[checkId.startIndex] == "." {
+        checkId.remove(at: checkId.startIndex)
+    }
+    
+    if checkId != "" {
+        if checkId[checkId.index(before: checkId.endIndex)] == "." {
+            checkId.removeLast()
+        }
     }
     
     // case5
-    if new_id.isEmpty {
-        new_id.append("a")
+    if checkId == "" {
+        checkId.append("a")
     }
     
     // case6
-    if new_id.count > 16 {
-        let last = new_id.index(new_id.startIndex, offsetBy: 16)
-        let range = last ..< new_id.endIndex
-        new_id.removeSubrange(range)
+    if checkId.count >= 16 {
+        let last = checkId.index(checkId.startIndex, offsetBy: 15)
+        let range = last ..< checkId.endIndex
+        checkId.removeSubrange(range)
+    }
+    
+    if checkId != "" {
+        if checkId[checkId.index(before: checkId.endIndex)] == "." {
+            checkId.removeLast()
+        }
     }
     
     // case7
-    if new_id.count < 2 {
-        let end = new_id[new_id.endIndex]
-        
-        while new_id.count <= 3 {
-            new_id.append(end)
+    if checkId.count <= 2 {
+        if checkId != "" {
+            let end = checkId[checkId.index(before: checkId.endIndex)]
+            while checkId.count < 3 {
+                checkId.append(end)
+            }
         }
     }
     
     
-    print(new_id)
-    return new_id
+    print(checkId)
+    return checkId
 }
 
 solution("...!@BaT#*..y.abcdefghijklm")
+//solution("z-+.^.")
+//solution("=.=")
+//solution("abcdefghijklmn.p")
+
