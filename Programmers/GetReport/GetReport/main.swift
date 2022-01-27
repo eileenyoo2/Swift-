@@ -16,7 +16,6 @@ import Foundation
 
 func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
 
-//    var reportID = [[""],[""],[""],[""]]
     var reportID = Array(repeating: [""], count: id_list.count)
     var reportCount = Array(repeating: 0, count: id_list.count)
     
@@ -26,11 +25,10 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
     var check = [String]()
     
     var lasttttt = Array(repeating: 0, count: id_list.count)
-    var cnt = 0
 
     // 유저가 신고한 ID
     for x in 0 ..< report.count {
-        
+
         let arr = report[x].components(separatedBy: " ")
 
         for y in 0 ..< id_list.count {
@@ -42,25 +40,18 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
             }
         }
     }
+    
     // 신고당한 횟수
     // 1,2,0,2 -> 즉, frodo 2회, neo 2회
-    
     let removeDuplicate: Set = Set(report)
     let newReport = Array(removeDuplicate)
     
     for x in 0 ..< newReport.count {
-        
-
-        
         let arr = newReport[x].components(separatedBy: " ")
         for y in 0 ..< id_list.count {
             if id_list[y] == arr[1] {
                 reportCount[y] = reportCount[y] + 1
-                
-//                if reportCount[y] >= k {
-//                    reportCount[y] = 1
-//                }
-                
+
                 test.updateValue(reportCount[y], forKey: id_list[y])
             }
         }
@@ -74,7 +65,7 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
     }
     
     for x in 0 ..< reportID.count {
-        cnt = 0
+        var cnt = 0
         for y in 0 ..< check.count {
             if reportID[x][0].contains(check[y]) {
                 cnt = cnt + 1
@@ -86,6 +77,6 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
     return lasttttt
 }
 
-solution(["muzi", "frodo", "apeach", "neo"], ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"], 2)
+//solution(["muzi", "frodo", "apeach", "neo"], ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"], 2)
 
-//solution(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3)
+solution(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3)
