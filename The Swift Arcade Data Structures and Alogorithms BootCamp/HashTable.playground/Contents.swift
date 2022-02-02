@@ -8,6 +8,10 @@ import Foundation
 
  */
 
+// 해시테이블이란?
+// Key를 해시 함수를 이용하여 해시 주소값(해시 테이블의 index)으로 바꾸고,
+// 해시 주소값(해시 테이블의 index)를 통해 해시 테이블에 접근하여 값을 가져오거나 저장함
+
 // Strings, Integers, Floating point numbers and Booleans
 // are all hashable by default.
 let stringsAreHashable = "abc".hashValue
@@ -95,13 +99,14 @@ class HashTable {
         return nil
     }
     
+    // Key를 준비해두고 이를 해시함수에 넣기 > 이 과정을 통해 해시테이블의 인덱스를 구할 수 있음
     private func getIndex(_ key: String) -> Int {
         // Get the key's hash code
         let hashCode = abs(key.hashValue)
         
         // Normalize it into an acceptable index
         let index = hashCode % HashTable.initialSize
-        print("\(key) \(hashCode) \(index)")
+        print("key:\(key) hashCode:\(hashCode) index:\(index)")
         
         // Forced collision for demonstration purposes
         if key == "John Smith" || key == "Sandra Dee" {
@@ -160,3 +165,4 @@ hashTable.get("Tim Lee")
 
 hashTable["Kevin Flynn"] = "The grid"
 hashTable["Kevin Flynn"]
+
