@@ -89,6 +89,7 @@ class BST {
     }
 
     func delete(key: Int) {
+        // 'root' 가 nil 이라면 return. 그렇지 않으면 delete(&root, key)
         guard let _ = root else { return }
         root = delete(&root, key)
     }
@@ -97,6 +98,7 @@ class BST {
     private func delete(_  node: inout Node?, _ key: Int) -> Node? {
         guard let nd = node else { return nil }
         
+        // nd는 기존의 node를 의미함
         if key < nd.key {
             nd.left = delete(&nd.left, key)
         } else if key > nd.key {
