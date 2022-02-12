@@ -22,7 +22,7 @@ func solution(participant: [String], completion: [String]) -> String{
     
     var result: String = ""
     
-    for x in 0 ..< c.count {
+    for x in 0 ... c.count - 1 {
         print("x->\(x)")
         if (p[x] != c[x]) {
             result = p[x]

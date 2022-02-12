@@ -12,7 +12,6 @@
 import Foundation
 
 func solution(_ bridge_length:Int, _ weight:Int, _ truck_weights:[Int]) -> Int {
-
     var trucks = truck_weights
     var bridge = Array(repeating: 0, count: bridge_length)
     var sec = 0
@@ -20,7 +19,7 @@ func solution(_ bridge_length:Int, _ weight:Int, _ truck_weights:[Int]) -> Int {
     
     while !bridge.isEmpty {
         // 1초마다 다리위의 트럭 또는 빈공간은 움직임
-        w -= bridge.removeFirst()
+        w -= bridge.removeFirst() // w는 음수가 나와도 괜찮다. 왜냐면 아래에서 t+w 라는 계산을 하게 되니깐
         sec += 1
         
         // 다리에 진입 예정인 트럭을 포함한 무게와 다리가 견딜 수 있는 무게를 비교해서
@@ -39,3 +38,5 @@ func solution(_ bridge_length:Int, _ weight:Int, _ truck_weights:[Int]) -> Int {
 }
 
 print(solution(2, 10, [7,4,5,6]))
+
+

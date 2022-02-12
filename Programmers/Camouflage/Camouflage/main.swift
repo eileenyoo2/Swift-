@@ -10,19 +10,23 @@
 import Foundation
 
 func solution(_ clothes:[[String]]) -> Int {
-    var typeCount: [String:Int] = [:]   // [Key : Value] 형태로 '딕셔너리' 선언
+    var typeCount = [String:Int]()   // [Key : Value] 형태로 '딕셔너리' 선언
     
     for cloth in clothes {
-        print(cloth)
-        print(cloth[1])
-        print("d ",typeCount[cloth[1]])
         if typeCount[cloth[1]] != nil {
             typeCount[cloth[1]]! += 1
         } else {
             typeCount[cloth[1]] = 1
         }
     }
-    return 0
+    
+    var count:Int = 1
+    
+    for (_, value) in typeCount {
+        count = count * (value + 1)
+    }
+    
+    return count - 1
 }
 
 print(solution([["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]]))
