@@ -69,8 +69,6 @@ func solution(_ new_id:String) -> String {
             }
         }
     }
-    
-    
     print(checkId)
     return checkId
 }

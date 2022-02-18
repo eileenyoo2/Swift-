@@ -31,6 +31,7 @@ func solution(A: [Int], K: Int) -> [Int] {
 func rotateRightOnce(A: [Int]) -> [Int] {
     var newArray = Array<Int>(repeating: 0, count: A.count)
     for i in 0..<A.count - 1 {
+        print(i)
         newArray[i+1] = A[i]
     }
     newArray[0] = A.last!

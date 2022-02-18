@@ -16,16 +16,15 @@ func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
     var final = [Int]()
 
     for i in 0 ... commands.count-1 {
-        var start = commands[i][0] - 1
-        var end = commands[i][1] - 1
+        let start = commands[i][0] - 1
+        let end = commands[i][1] - 1
         result = Array(array[start...end])
-     
         result.sort(by: <)
         temp.append(result)
     }
     
     for i in 0 ... commands.count-1 {
-        var idx = commands[i][2] - 1
+        let idx = commands[i][2] - 1
         final.append(temp[i][idx])
     }
     print(final)
@@ -34,4 +33,3 @@ func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
 
 
 solution([1,5,2,6,3,7,4], [[2,5,3],[4,4,1],[1,7,3]])
-
