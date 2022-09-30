@@ -5,9 +5,9 @@
 //  Created by sapere4ude on 2020/12/15.
 //
 
-import Foundation
-
 // [이것이 코딩테스트다. 그리디 Q1]
+
+import Foundation
 
 var PeopleCount = Int(readLine()!)!
 var data = readLine()!.split(separator: " ").map { String($0) }
