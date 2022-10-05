@@ -2,7 +2,7 @@
 //  main.swift
 //  Carpet
 //
-//  Created by sapere4ude on 2021/01/05.
+//  Created by kant on 2021/01/05.
 //
 
 // [프로그래머스 카펫]
@@ -29,3 +29,4 @@ func solution(_ brown:Int, _ yellow:Int) -> [Int] {
 
 
 print(solution(10, 2))
+print(solution(8, 1))
